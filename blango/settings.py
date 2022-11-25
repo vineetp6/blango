@@ -136,6 +136,8 @@ class Dev(Configuration):
 }
 
 
+  
+
   # Password validation
   # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -153,6 +155,15 @@ class Dev(Configuration):
           'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
       },
   ]
+
+  PASSWORD_HASHERS = [
+      'django.contrib.auth.hashers.Argon2PasswordHasher',
+      'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+      'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+      'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+  ]
+  
+
 
 
   # Internationalization
