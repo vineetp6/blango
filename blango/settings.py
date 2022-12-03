@@ -19,6 +19,7 @@ import logging
 
 class Dev(Configuration):
   AUTH_USER_MODEL = "blango_auth.User"
+  EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
   LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -71,6 +72,7 @@ class Dev(Configuration):
   # SECURITY WARNING: don't run with debug turned on in production!
   DEBUG = True
 
+
   ALLOWED_HOSTS = ['*']
   X_FRAME_OPTIONS = 'ALLOW-FROM ' + os.environ.get('CODIO_HOSTNAME') + '-8000.codio.io'
   CSRF_COOKIE_SAMESITE = None
@@ -79,6 +81,7 @@ class Dev(Configuration):
   SESSION_COOKIE_SECURE = True
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
+  ACCOUNT_ACTIVATION_DAYS = 7
 
   # Application definition
 
