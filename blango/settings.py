@@ -20,6 +20,11 @@ import logging
 class Dev(Configuration):
   AUTH_USER_MODEL = "blango_auth.User"
   EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+  SITE_ID = 1
+  ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+  ACCOUNT_EMAIL_REQUIRED = True
+  ACCOUNT_USERNAME_REQUIRED = False
+  ACCOUNT_AUTHENTICATION_METHOD = "email"
   LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -91,13 +96,19 @@ class Dev(Configuration):
       'django.contrib.contenttypes',
       'django.contrib.sessions',
       'django.contrib.messages',
+      "django.contrib.sites",
       'django.contrib.staticfiles',
       'blango_auth',
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
       "debug_toolbar",
+      "allauth", 
+      "allauth.account", 
+      "allauth.socialaccount",
+      "allauth.socialaccount.providers.google"
   ]
+
 
   MIDDLEWARE = [
       "debug_toolbar.middleware.DebugToolbarMiddleware",
